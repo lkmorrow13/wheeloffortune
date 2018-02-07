@@ -1,0 +1,65 @@
+html, body {
+	background-image: url('../wofimages/wofbackground.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.unUsedLetter {
+	background-color: green;
+	color: white;
+	border: solid white;
+}
+
+.containerPosition {
+    width: 70%;
+    display: inline-block;
+
+}
+
+.rightLetter {
+	background-color: grey;
+	color: green;
+	border: solid green;
+}
+
+.wrongLetter {
+	background-color: grey;
+	color: red;
+	border: solid red;
+}
+
+.letters {
+	text-align: center;
+	font-size: 40px;
+	margin: 5px;
+	border-radius: 7px;
+}
+
+.scorebox {
+	text-align: center;
+	font-size: 40px;
+	border-radius: 7px;
+	background-color: blue;
+	color: white;
+	border: solid white;
+}
+
+.hint {
+	text-align: center;
+	font-size: 40px;
+	background-color: green;
+	border-radius: 7px;
+	border: solid white;
+	margin: 5px;
+	color: white;
+}
+
+.word {
+	background-color: green;
+	font-size: 50px;
+	text-align: center;
+	border: solid white;
+	border-radius: 7px;
+	margin: 5px;
+	color: white;
+}
