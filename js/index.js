@@ -12,56 +12,69 @@
 
 
 $(function() {
-	guessLetter() {
-		if (this.letter = this.words[i]) {
-			$('.letter').removeClass('unUsedLetter');
-			$('.letter').addClass('rightLetter');
-			// add 100pts to players score
-			// add to word box
-		}
-		else {
-			$('.letter').removeClass('unUsedLetter');  
-			$('.letter').addClass('wrongLetter');
-		}
-	}
+	var game = new Game();
+	game.startgame();
+	$('.guessible').click(function () {
+		game.guessletter($(this).text().toLowerCase());
+	});
+
+	$('#solvebutton').click(function() {
+		game.solve($('#solveword').val());
+	})
 });
 
-const phraseArray = [{phrase: 'Dirt', clue: 'Done **** Cheap'}, {phrase: 'Happy', clue: 'When you\'re ***** and you know it!'}, {phrase: 'Fortune', clue: '******* favors the bold!'}]
+
 
 class Game {
-	constructor(phraseArr){
-		this.playerOne = {
-			money: 0,
-			name: 'Player One',
-			turn: false
-		};
-
-		this.playerTwo = {
-			money: 0,
-			name: 'Player Two',
-			turn: false
-		};
-
-		this.playerThree = {
-			money: 0,
-			name: 'Player Three',
-			turn: false
-		};
-
-		this.roundCounter = 1;
-    this.phraseArr = phraseArr[(Math.floor(Math.random() * phraseArr.length))];
-    this.phrase = this.phraseArr.phrase.split('');
-    this.noSpacePhrase =  this.phrase.filter(function(str) {
-    return /\S/g.test(str);
-    });
+	constructor(){
+		this.phraseArray = [{phrase: 'dirt', clue: 'Done **** Cheap'}, {phrase: 'happy', clue: 'When you\'re ***** and you know it!'}, {phrase: 'fortune', clue: '******* favors the bold!'}];
+		this.roundCounter = 0;
+    this.phrase = this.phraseArray[this.roundCounter];
     this.correctLetters = [];
     this.incorrectLetters = [];
-    this.abcArr = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'];
-    this.vowArr = ['a', 'e', 'i', 'o', 'u'];
-    this.phraseLetters =  this.noSpacePhrase.filter(function(elem, index, self) 
-    {
-      return index == self.indexOf(elem);
-    });
+  }
 
+  startgame() {
+  	$('#phrase-display').empty();
+  	for (var i = 0; i < this.phrase.phrase.length; i++) {
+  		$('#phrase-display').append('<div class="letter" data-letter="'+this.phrase.phrase[i]+'"></div>');
+  	}
+  	$('#cluebox').text(this.phrase.clue);
+  }
+
+  guessletter(letter) {
+  	if (this.phrase.phrase.includes(letter)) {
+  		$('.letter').each(function() {
+  			if ($(this).data('letter') == letter) {
+  				$(this).text(letter);
+  			}
+  		});
+	  	this.didWin();
+  	};
+  }
+
+  didWin() {
+  	var won = true;
+  	$('.letter').each(function() {
+			if ($(this).data('letter') !== '' && $(this).text() == '') {
+				won = false;
+			}
+		});
+		if (won) {
+			alert('Yay you won!!!');
+			this.roundCounter++;
+			this.phrase = this.phraseArray[this.roundCounter];
+			this.startgame();
+		}
+  }
+
+  solve(guess) {
+  	if (guess.toLowerCase() === this.phrase.phrase) {
+			alert('Yay you won!!!');
+			this.roundCounter++;
+			this.phrase = this.phraseArray[this.roundCounter];
+			this.startgame();
+			$('#solveword').val('');
+		}
   }
 }          

@@ -4,12 +4,6 @@ html, body {
 	background-repeat: no-repeat;
 }
 
-.unUsedLetter {
-	background-color: green;
-	color: white;
-	border: solid white;
-}
-
 .containerPosition {
     width: 70%;
     display: inline-block;
@@ -28,7 +22,7 @@ html, body {
 	border: solid red;
 }
 
-.abcs {
+.guessible {
 	width: 25px;
 	height: 30px;
 	background: green;
@@ -65,7 +59,7 @@ html, body {
 	border: solid white;
 }
 
-.cluebox {
+#cluebox {
 	margin: 0 auto;
 	height: 30px;
 	width: 300px;
