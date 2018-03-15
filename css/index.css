@@ -28,11 +28,32 @@ html, body {
 	border: solid red;
 }
 
-.letters {
+.abcs {
+	width: 25px;
+	height: 30px;
+	background: green;
+	color: white;
+	font-size: 1em;
 	text-align: center;
-	font-size: 40px;
-	margin: 5px;
-	border-radius: 7px;
+	line-height: 30px;
+	border-radius: 3px;
+	border: 1px solid white;
+	margin: .5%;
+	cursor: pointer;
+}
+
+.vowels {
+	width: 20px;
+	height: 30px;
+	background: green;
+	color: white;
+	font-size: 1em;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 3px;
+	border: 1px solid white;
+	margin: 0 8%;
+	cursor: pointer;
 }
 
 .scorebox {
@@ -44,22 +65,52 @@ html, body {
 	border: solid white;
 }
 
-.hint {
+.cluebox {
+	margin: 0 auto;
+	height: 30px;
+	width: 300px;
+	border: 2px solid white;
+	border-radius: 15px;
 	text-align: center;
-	font-size: 40px;
-	background-color: green;
-	border-radius: 7px;
-	border: solid white;
-	margin: 5px;
 	color: white;
+	background: green;
 }
 
-.word {
-	background-color: green;
-	font-size: 50px;
+
+.phrase-letter {
+	width: 150px;
+	height: 100px;
+	border: 2px solid white;
+	background: green;
+	font-size: 3em;
+	line-height: 100px;
+	margin: .2%;
 	text-align: center;
-	border: solid white;
 	border-radius: 7px;
-	margin: 5px;
-	color: white;
+}
+
+
+.solvebox {
+	margin: 0 auto;
+	height: 30px;
+	width: 300px;
+	border: 2px solid white;
+	border-radius: 15px;
+	text-align: center;
+	color: aliceblue;
+	background: green;
+	cursor: pointer;
+}
+
+.player {
+	height: 160px;
+	width: 100px;
+	font-size: 1.5em;
+	text-align: center;
+	background: green;
+	color: darkgray;
+	padding: 10px;
+	margin: auto;
+	border: 2px solid white;
+	border-radius: 7px;
 }
