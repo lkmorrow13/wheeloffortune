@@ -12,26 +12,69 @@
 
 
 $(function() {
-	
+	var game = new Game();
+	game.startgame();
+	$('.guessible').click(function () {
+		game.guessletter($(this).text().toLowerCase());
+	});
+
+	$('#solvebutton').click(function() {
+		game.solve($('#solveword').val());
+	})
 });
 
-class WheelFortune {
-	constructor() {
-		this.words = [{word: 'happy', hint: 'When you\'re " " and you know it!'}, {word: 'dirt', hint: 'Done " " cheap'}, {word: 'fortune', hint: '" " favors the bold'}];
-	}
 
 
+class Game {
+	constructor(){
+		this.phraseArray = [{phrase: 'dirt', clue: 'Done **** Cheap'}, {phrase: 'happy', clue: 'When you\'re ***** and you know it!'}, {phrase: 'fortune', clue: '******* favors the bold!'}];
+		this.roundCounter = 0;
+    this.phrase = this.phraseArray[this.roundCounter];
+    this.correctLetters = [];
+    this.incorrectLetters = [];
+  }
 
-	guessLetter() {
-		if (this.letter = this.words[i]) {
-			$('.letter').removeClass('unUsedLetter');
-			$('.letter').addClass('rightLetter');
-			// add 100pts to players score
-			// add to word box
+  startgame() {
+  	$('#phrase-display').empty();
+  	for (var i = 0; i < this.phrase.phrase.length; i++) {
+  		$('#phrase-display').append('<div class="letter" data-letter="'+this.phrase.phrase[i]+'"></div>');
+  	}
+  	$('#cluebox').text(this.phrase.clue);
+  }
+
+  guessletter(letter) {
+  	if (this.phrase.phrase.includes(letter)) {
+  		$('.letter').each(function() {
+  			if ($(this).data('letter') == letter) {
+  				$(this).text(letter);
+  			}
+  		});
+	  	this.didWin();
+  	};
+  }
+
+  didWin() {
+  	var won = true;
+  	$('.letter').each(function() {
+			if ($(this).data('letter') !== '' && $(this).text() == '') {
+				won = false;
+			}
+		});
+		if (won) {
+			alert('Yay you won!!!');
+			this.roundCounter++;
+			this.phrase = this.phraseArray[this.roundCounter];
+			this.startgame();
 		}
-		else {
-			$('.letter').removeClass('unUsedLetter');  
-			$('.letter').addClass('wrongLetter');
+  }
+
+  solve(guess) {
+  	if (guess.toLowerCase() === this.phrase.phrase) {
+			alert('Yay you won!!!');
+			this.roundCounter++;
+			this.phrase = this.phraseArray[this.roundCounter];
+			this.startgame();
+			$('#solveword').val('');
 		}
-	}
-}
+  }
+}          

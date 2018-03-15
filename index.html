@@ -11,52 +11,60 @@
     <title>Wheel of Fortune</title>
   </head>
   <body>
-	<div class="container containerPosition">
-		<div class="row">
-			<div class="col-7 offset-sm-5">
-				<div class="word">Dirt</div>
-				<div class="hint">Done "" Cheap</div>
-			</div>
-		</div>
-		<div class="row">
-			
-		</div>
-		<div class="row">
-			<div class="col unUsedLetter letters">A</div>
-			<div class="col unUsedLetter letters">B</div>
-			<div class="col unUsedLetter letters">C</div>
-			<div class="col unUsedLetter letters">D</div>
-			<div class="col unUsedLetter letters">E</div>
-			<div class="col unUsedLetter letters">F</div>
-			<div class="col unUsedLetter letters">G</div>
-			<div class="col unUsedLetter letters">H</div>
-			<div class="col unUsedLetter letters">I</div>
-			<div class="col unUsedLetter letters">J</div>
-			<div class="col unUsedLetter letters">K</div>
-			<div class="col unUsedLetter letters">L</div>
-			<div class="col unUsedLetter letters">M</div>
-		</div>
-		<div class="row">	
-			<div class="col unUsedLetter letters">N</div>
-			<div class="col unUsedLetter letters">O</div>
-			<div class="col unUsedLetter letters">P</div>
-			<div class="col unUsedLetter letters">Q</div>
-			<div class="col unUsedLetter letters">R</div>
-			<div class="col unUsedLetter letters">S</div>
-			<div class="col unUsedLetter letters">T</div>
-			<div class="col unUsedLetter letters">U</div>
-			<div class="col unUsedLetter letters">V</div>
-			<div class="col unUsedLetter letters">W</div>
-			<div class="col unUsedLetter letters">X</div>
-			<div class="col unUsedLetter letters">Y</div>
-			<div class="col unUsedLetter letters">Z</div>
-		</div>
-		<div class="row">
-			<div class="col-3"></div>
-			<div class="col-3"></div>
-			<div class="col-3"></div>
-		</div>
-	</div>
+		<div class="container">
+      <div class="row" id="phrase-display">
+      </div>
+    </div>
+
+    <div id="cluebox"></div>
+
+    <br>
+
+
+    <div class="container containerPosition">
+      <div class="row justify-content-center" id="letters-list">
+        <div class="col-1 guessible">A</div>
+        <div class="col-1 guessible">B</div>
+        <div class="col-1 guessible">C</div>
+        <div class="col-1 guessible">D</div>
+        <div class="col-1 guessible">E</div>
+        <div class="col-1 guessible">F</div>
+        <div class="col-1 guessible">G</div>
+        <div class="col-1 guessible">H</div>
+        <div class="col-1 guessible">I</div>
+        <div class="col-1 guessible">J</div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-1 guessible">K</div>
+        <div class="col-1 guessible">L</div>
+      	<div class="col-1 guessible">M</div>
+      	<div class="col-1 guessible">N</div>
+      	<div class="col-1 guessible">O</div>
+      	<div class="col-1 guessible">P</div>
+      	<div class="col-1 guessible">Q</div>
+      	<div class="col-1 guessible">R</div>
+      	<div class="col-1 guessible">S</div>
+      	<div class="col-1 guessible">T</div>
+      </div>
+      <div class="row justify-content-center">
+      	<div class="col-1 guessible">U</div>
+      	<div class="col-1 guessible">V</div>
+      	<div class="col-1 guessible">W</div>
+      	<div class="col-1 guessible">X</div>
+      	<div class="col-1 guessible">Y</div>
+      	<div class="col-1 guessible">Z</div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="row players"></div>
+    </div>
+
+    <br>
+
+    <div class="solvebox">Solve <input type="text" id="solveword"> <button id="solvebutton">Solve</button></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
